@@ -1,5 +1,10 @@
+[![Build Status](https://travis-ci.org/Joatin/angular2-meteor-rxjs.svg?branch=master)](https://travis-ci.org/Joatin/angular2-meteor-rxjs)
+
 # angular2-meteor-rxjs
 Helpers for mapping meteor autorun contexts to observables
+
+Remember that all of the exported observables are cold. That means that you have to subscribe before any action is
+taken, or you have to make them hot by other means.
 
 # Usage
 ## AutorunObservable

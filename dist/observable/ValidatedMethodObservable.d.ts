@@ -1,6 +1,6 @@
 import { Observable, Subscriber } from "rxjs";
-export interface IValidatedMethodCallable<T> {
-    call(...args: any[]): T;
+export interface IValidatedMethodCallable {
+    call(...args: any[]): any;
 }
 export declare class ValidatedMethodObservable<T> extends Observable<T> {
     private method;

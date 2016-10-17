@@ -1,7 +1,7 @@
 (function (global, factory) {
     typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports, require('rxjs'), require('@angular/core')) :
     typeof define === 'function' && define.amd ? define(['exports', 'rxjs', '@angular/core'], factory) :
-    (factory((global.angular2 = global.angular2 || {}, global.angular2.meteor = global.angular2.meteor || {}, global.angular2.meteor.rxjs = global.angular2.meteor.rxjs || {}),global.rxjs,global._angular_core));
+    (factory((global.angular2 = global.angular2 || {}, global.angular2.meteor = global.angular2.meteor || {}, global.angular2.meteor.rxjs = global.angular2.meteor.rxjs || {}),global.rxjs,global.@angular/core));
 }(this, (function (exports,rxjs,_angular_core) { 'use strict';
 
 var AutorunObservable = (function (_super) {

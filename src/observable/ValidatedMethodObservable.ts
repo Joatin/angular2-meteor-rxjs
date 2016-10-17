@@ -1,8 +1,8 @@
 import {Observable, Subscriber} from "rxjs";
 import {NgZone} from "@angular/core";
 
-export interface IValidatedMethodCallable<T>{
-    call(...args: any[]): T;
+export interface IValidatedMethodCallable{
+    call(...args: any[]): any;
 }
 
 export class ValidatedMethodObservable<T> extends Observable<T>{
