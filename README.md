@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.org/Joatin/angular2-meteor-rxjs.svg?branch=master)](https://travis-ci.org/Joatin/angular2-meteor-rxjs)
+[![Build Status](https://travis-ci.org/Joatin/angular2-meteor-rxjs.svg?branch=master)](https://travis-ci.org/Joatin/angular2-meteor-rxjs) [![npm version](https://badge.fury.io/js/angular2-meteor-rxjs.svg)](https://badge.fury.io/js/angular2-meteor-rxjs)
 
 # angular2-meteor-rxjs
 Helpers for mapping meteor autorun contexts to observables
