@@ -1,0 +1,41 @@
+{
+  "name": "angular2-meteor-rxjs",
+  "version": "1.0.0-beta.0",
+  "description": "Helpers for mapping meteor autorun contexts to observables",
+  "main": "dist/bundles/index.umd.js",
+  "browser": "dist/bundles/index.umd.js",
+  "typings": "dist/index.d.ts",
+  "scripts": {
+    "typings": "typings i",
+    "prebuild": "npm run typings",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "gulp build && rollup -c rollup.config.js",
+    "prepublish": "npm run build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Joatin/angular2-meteor-rxjs.git"
+  },
+  "keywords": [
+    "angular2",
+    "meteor",
+    "rxjs"
+  ],
+  "author": "Joatin Granlund",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Joatin/angular2-meteor-rxjs/issues"
+  },
+  "homepage": "https://github.com/Joatin/angular2-meteor-rxjs#readme",
+  "peerDependencies": {
+    "rxjs": "5.0.0-beta.12",
+    "@angular/core": "^2.1.0"
+  },
+  "devDependencies": {
+    "@angular/core": "^2.1.0",
+    "gulp": "^3.9.1",
+    "merge2": "^1.0.2",
+    "rollup": "^0.36.3",
+    "rxjs": "5.0.0-beta.12"
+  }
+}

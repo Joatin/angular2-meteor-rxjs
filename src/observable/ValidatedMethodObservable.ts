@@ -1,0 +1,37 @@
+import {Observable, Subscriber} from "rxjs";
+import {NgZone} from "@angular/core";
+
+export interface IValidatedMethodCallable<T>{
+    call(...args: any[]): T;
+}
+
+export class ValidatedMethodObservable<T> extends Observable<T>{
+    public static create<T>(method: IValidatedMethodCallable<T>, ...args: any[]): Observable<T>{
+        return new ValidatedMethodObservable<T>(method, args);
+    }
+
+    private args: any[];
+    private zone: NgZone = new NgZone({});
+
+    public constructor(
+        private method: IValidatedMethodCallable<T>,
+        ...args: any[]
+    ){
+        super();
+        this.args = args;
+    }
+
+    protected _subscribe(subscriber: Subscriber<T>): void{
+        this.method.call(this.args, (error, value)=>{
+            this.zone.run(() => {
+                if(error){
+                    subscriber.error(error);
+                }else{
+                    subscriber.next(value);
+                    subscriber.complete();
+                }
+            });
+        });
+
+    }
+}

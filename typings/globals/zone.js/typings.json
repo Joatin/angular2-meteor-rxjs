@@ -1,0 +1,13 @@
+{
+  "resolution": "main",
+  "tree": {
+    "src": "C:\\Users\\Joatin\\Documents\\GitHub\\angular2-meteor-rxjs\\node_modules\\zone.js\\package.json",
+    "raw": "npm:zone.js",
+    "main": "dist/zone-node.js",
+    "browser": "dist/zone.js",
+    "typings": "dist/zone.js.d.ts",
+    "version": "0.6.25",
+    "global": false,
+    "name": "zone.js"
+  }
+}
