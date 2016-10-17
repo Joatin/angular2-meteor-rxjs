@@ -6,7 +6,7 @@ export interface IValidatedMethodCallable{
 }
 
 export class ValidatedMethodObservable<T> extends Observable<T>{
-    public static create<T>(method: IValidatedMethodCallable<T>, ...args: any[]): Observable<T>{
+    public static create<T>(method: IValidatedMethodCallable, ...args: any[]): Observable<T>{
         return new ValidatedMethodObservable<T>(method, args);
     }
 
@@ -14,7 +14,7 @@ export class ValidatedMethodObservable<T> extends Observable<T>{
     private zone: NgZone = new NgZone({});
 
     public constructor(
-        private method: IValidatedMethodCallable<T>,
+        private method: IValidatedMethodCallable,
         ...args: any[]
     ){
         super();
