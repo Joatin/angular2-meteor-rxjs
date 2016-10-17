@@ -7,7 +7,7 @@ export interface IValidatedMethodCallable{
 
 export class ValidatedMethodObservable<T> extends Observable<T>{
     public static create<T>(method: IValidatedMethodCallable, ...args: any[]): Observable<T>{
-        return new ValidatedMethodObservable<T>(method, args);
+        return new ValidatedMethodObservable<T>(method, ...args);
     }
 
     private args: any[];
@@ -22,7 +22,7 @@ export class ValidatedMethodObservable<T> extends Observable<T>{
     }
 
     protected _subscribe(subscriber: Subscriber<T>): void{
-        this.method.call(this.args, (error, value)=>{
+        this.method.call(...this.args.concat([(error: Meteor.Error, value: T)=>{
             this.zone.run(() => {
                 if(error){
                     subscriber.error(error);
@@ -31,7 +31,6 @@ export class ValidatedMethodObservable<T> extends Observable<T>{
                     subscriber.complete();
                 }
             });
-        });
-
+        }]));
     }
 }

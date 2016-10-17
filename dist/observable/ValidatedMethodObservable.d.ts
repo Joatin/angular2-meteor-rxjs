@@ -4,9 +4,9 @@ export interface IValidatedMethodCallable {
 }
 export declare class ValidatedMethodObservable<T> extends Observable<T> {
     private method;
-    static create<T>(method: IValidatedMethodCallable<T>, ...args: any[]): Observable<T>;
+    static create<T>(method: IValidatedMethodCallable, ...args: any[]): Observable<T>;
     private args;
     private zone;
-    constructor(method: IValidatedMethodCallable<T>, ...args: any[]);
+    constructor(method: IValidatedMethodCallable, ...args: any[]);
     protected _subscribe(subscriber: Subscriber<T>): void;
 }

@@ -3,7 +3,7 @@ import {NgZone} from "@angular/core";
 
 export class MeteorMethodObservable<T> extends Observable<T>{
     public static create<T>(name: string, ...args: any[]): Observable<T>{
-        return new MeteorMethodObservable<T>(name, args);
+        return new MeteorMethodObservable<T>(name, ...args);
     }
 
     private args: any[];
@@ -18,7 +18,7 @@ export class MeteorMethodObservable<T> extends Observable<T>{
     }
 
     protected _subscribe(subscriber: Subscriber<T>): void{
-        Meteor.call(this.name, this.args, (error, value)=>{
+        Meteor.call(this.name, ...this.args.concat([(error: Meteor.Error, value: T)=>{
             this.zone.run(() => {
                 if(error){
                     subscriber.error(error);
@@ -27,6 +27,6 @@ export class MeteorMethodObservable<T> extends Observable<T>{
                     subscriber.complete();
                 }
             });
-        });
+        }]));
     }
 }
