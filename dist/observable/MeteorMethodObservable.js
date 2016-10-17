@@ -17,21 +17,21 @@ export var MeteorMethodObservable = (function (_super) {
         for (var _i = 1; _i < arguments.length; _i++) {
             args[_i - 1] = arguments[_i];
         }
-        return new MeteorMethodObservable(name, args);
+        return new (MeteorMethodObservable.bind.apply(MeteorMethodObservable, [void 0].concat([name], args)))();
     };
     MeteorMethodObservable.prototype._subscribe = function (subscriber) {
         var _this = this;
-        Meteor.call(this.name, this.args, function (error, value) {
-            _this.zone.run(function () {
-                if (error) {
-                    subscriber.error(error);
-                }
-                else {
-                    subscriber.next(value);
-                    subscriber.complete();
-                }
-            });
-        });
+        Meteor.call.apply(Meteor, [this.name].concat(this.args.concat([function (error, value) {
+                _this.zone.run(function () {
+                    if (error) {
+                        subscriber.error(error);
+                    }
+                    else {
+                        subscriber.next(value);
+                        subscriber.complete();
+                    }
+                });
+            }])));
     };
     return MeteorMethodObservable;
 }(Observable));

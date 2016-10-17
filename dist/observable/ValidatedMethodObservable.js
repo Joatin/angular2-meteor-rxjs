@@ -17,21 +17,22 @@ export var ValidatedMethodObservable = (function (_super) {
         for (var _i = 1; _i < arguments.length; _i++) {
             args[_i - 1] = arguments[_i];
         }
-        return new ValidatedMethodObservable(method, args);
+        return new (ValidatedMethodObservable.bind.apply(ValidatedMethodObservable, [void 0].concat([method], args)))();
     };
     ValidatedMethodObservable.prototype._subscribe = function (subscriber) {
         var _this = this;
-        this.method.call(this.args, function (error, value) {
-            _this.zone.run(function () {
-                if (error) {
-                    subscriber.error(error);
-                }
-                else {
-                    subscriber.next(value);
-                    subscriber.complete();
-                }
-            });
-        });
+        (_a = this.method).call.apply(_a, this.args.concat([function (error, value) {
+                _this.zone.run(function () {
+                    if (error) {
+                        subscriber.error(error);
+                    }
+                    else {
+                        subscriber.next(value);
+                        subscriber.complete();
+                    }
+                });
+            }]));
+        var _a;
     };
     return ValidatedMethodObservable;
 }(Observable));
