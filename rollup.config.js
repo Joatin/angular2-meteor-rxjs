@@ -4,7 +4,6 @@ export default {
     dest: './dist/bundles/index.umd.js',
     moduleName: 'angular2.meteor.rxjs',
     globals: {
-        'rxjs':'rxjs',
-        '@angular/core': '@angular/core'
+        'rxjs':'rxjs'
     }
 };
